@@ -38,7 +38,7 @@ const MyBookings = () => {
           setBookings(mock);
         } else {
           setError(
-            "Could not retrieve bookings. If you are in dev, enable mock bookings or start backend."
+            "Could not retrieve bookings. If you are in dev, enable mock bookings or start backend.",
           );
         }
       } finally {

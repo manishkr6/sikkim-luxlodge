@@ -105,7 +105,7 @@ const Gallery = ({ className = "mt-16" }) => {
                   className="w-full h-[60vh] object-contain bg-black"
                 />
                 <div className="px-4 py-3 flex items-center justify-between">
-                  <p className="text-sm text-gray-200">{images[index].alt}</p>
+                  <p className="text-sm text-black-200">{images[index].alt}</p>
                   <div className="text-sm text-gray-200">
                     {index + 1} / {images.length}
                   </div>

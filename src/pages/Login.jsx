@@ -63,7 +63,9 @@ const Login = () => {
           <div className="absolute inset-0 bg-black/65"></div>
 
           <div className="relative z-10 p-10 flex flex-col justify-between">
-            <h1 className="text-3xl font-bold tracking-widest">LODGE<span className="text-purple-400">LUX</span></h1>
+            <h1 className="text-3xl font-bold tracking-widest">
+              LODGE<span className="text-purple-400">LUX</span>
+            </h1>
 
             <div>
               <h2 className="text-2xl font-semibold mb-3">
@@ -96,9 +98,7 @@ const Login = () => {
                 : "Join LodgeLux & book your luxury stay"}
             </p>
 
-            {error && (
-              <p className="text-red-400 text-sm mb-4">{error}</p>
-            )}
+            {error && <p className="text-red-400 text-sm mb-4">{error}</p>}
 
             {!isLogin && (
               <div className="mb-4">
@@ -171,8 +171,8 @@ const Login = () => {
               {loading
                 ? "Please wait..."
                 : isLogin
-                ? "Login"
-                : "Create Account"}
+                  ? "Login"
+                  : "Create Account"}
             </button>
 
             <button

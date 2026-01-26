@@ -78,9 +78,9 @@ const RoomDetails = () => {
 
     try {
       const url = `http://localhost:5000/api/rooms/${id}/availability?checkIn=${encodeURIComponent(
-        checkIn
+        checkIn,
       )}&checkOut=${encodeURIComponent(checkOut)}&guests=${encodeURIComponent(
-        guestsCount
+        guestsCount,
       )}`;
 
       const res = await fetch(url);
@@ -116,7 +116,7 @@ const RoomDetails = () => {
         setAvailabilityStatus("available");
       } else {
         setAvailabilityError(
-          "Network error: cannot reach availability service. Make sure backend is running."
+          "Network error: cannot reach availability service. Make sure backend is running.",
         );
         setAvailabilityStatus(null);
       }

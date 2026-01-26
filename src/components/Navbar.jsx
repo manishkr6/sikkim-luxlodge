@@ -1,8 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { assets } from "../assets/assets";
-
-// ✅ CLERK IMPORTS
 import { useUser, SignInButton, UserButton } from "@clerk/clerk-react";
 
 const Navbar = () => {
@@ -11,7 +9,6 @@ const Navbar = () => {
     { name: "About", path: "/about" },
     { name: "Hotels", path: "/rooms" },
     { name: "Experience", path: "/experience" },
-
     { name: "Contact", path: "/contact" },
   ];
 
@@ -25,6 +22,8 @@ const Navbar = () => {
 
   // ✅ CLERK AUTH STATE
   const { isSignedIn } = useUser();
+
+  const searchRef = useRef(null);
 
   useEffect(() => {
     if (location.pathname !== "/") {
@@ -41,6 +40,29 @@ const Navbar = () => {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, [location.pathname]);
+
+  // Close search on outside click (works on both desktop and mobile)
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (
+        isSearchOpen &&
+        searchRef.current &&
+        !searchRef.current.contains(event.target)
+      ) {
+        setIsSearchOpen(false);
+      }
+    };
+
+    if (isSearchOpen) {
+      document.addEventListener("mousedown", handleClickOutside);
+      document.addEventListener("touchstart", handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener("touchstart", handleClickOutside);
+    };
+  }, [isSearchOpen]);
 
   const handleSearch = (e) => {
     e.preventDefault();
@@ -90,7 +112,7 @@ const Navbar = () => {
 
       {/* Desktop Right */}
       <div className="hidden md:flex items-center gap-4">
-        <div className="relative">
+        <div className="relative" ref={searchRef}>
           <img
             onClick={() => setIsSearchOpen(!isSearchOpen)}
             src={assets.searchIcon}
@@ -108,6 +130,7 @@ const Navbar = () => {
                 onChange={(e) => setSearchQuery(e.target.value)}
                 placeholder="Search hotels..."
                 className="w-full outline-none"
+                autoFocus
               />
             </form>
           )}
@@ -163,27 +186,69 @@ const Navbar = () => {
         </button>
       </div>
 
-      {/* Mobile Menu */}
+      {/* Mobile Search Form */}
+      {isSearchOpen && (
+        <div
+          ref={searchRef}
+          className="md:hidden absolute left-0 right-0 top-full mt-2 bg-white shadow-lg rounded-b-lg p-4 z-50"
+        >
+          <form onSubmit={handleSearch} className="flex items-center">
+            <input
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              placeholder="Search hotels..."
+              className="flex-1 outline-none text-base py-2 px-3 border border-gray-300 rounded-l-md"
+              autoFocus
+            />
+            <button
+              type="submit"
+              className="bg-blue-600 text-white px-4 py-2 rounded-r-md font-medium"
+            >
+              Search
+            </button>
+          </form>
+        </div>
+      )}
+
+      {/* Mobile Menu - with Close Button */}
       <div
         className={`fixed top-0 left-0 w-full h-screen bg-white flex flex-col items-center justify-center gap-6 transition-transform duration-500 z-40 ${
           isMenuOpen ? "translate-x-0" : "-translate-x-full"
         }`}
       >
+        {/* Close Button */}
+        <button
+          onClick={() => setIsMenuOpen(false)}
+          className="absolute top-6 right-6 text-3xl text-gray-800 hover:text-gray-500 transition-colors"
+          aria-label="Close menu"
+        >
+          ✕
+        </button>
+
+        {/* Nav Links */}
         {navLinks.map((link, i) => (
-          <a key={i} href={link.path} onClick={() => setIsMenuOpen(false)}>
+          <a
+            key={i}
+            href={link.path}
+            className="text-2xl font-medium text-gray-800 hover:text-blue-600 transition-colors"
+            onClick={() => setIsMenuOpen(false)}
+          >
             {link.name}
           </a>
         ))}
 
-        {!isSignedIn ? (
-          <SignInButton mode="modal">
-            <button className="bg-black text-white px-8 py-2 rounded-full">
-              Login
-            </button>
-          </SignInButton>
-        ) : (
-          <UserButton afterSignOutUrl="/" />
-        )}
+        {/* Auth in Mobile */}
+        <div className="mt-8">
+          {!isSignedIn ? (
+            <SignInButton mode="modal">
+              <button className="bg-black text-white px-10 py-3 rounded-full text-lg">
+                Login
+              </button>
+            </SignInButton>
+          ) : (
+            <UserButton afterSignOutUrl="/" />
+          )}
+        </div>
       </div>
     </nav>
   );

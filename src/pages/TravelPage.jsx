@@ -13,7 +13,6 @@ const TravelPage = () => {
   if (districtId === "west") return <WestSikkim />;
   if (districtId === "north") return <NorthSikkim />;
   if (districtId === "south") return <SouthSikkim />;
-
 };
 
 export default TravelPage;
