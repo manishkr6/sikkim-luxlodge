@@ -30,8 +30,7 @@ const WestSikkim = () => {
             West Sikkim
           </h1>
           <p className="mt-4 text-lg text-gray-200 max-w-2xl">
-            The capital region of Sikkim, known for its vibrant culture,
-            monasteries, and stunning views of Kanchenjunga.
+            The pristine paradise, known for sacred lakes, ancient monasteries, and stunning Kanchenjunga views.
           </p>
         </div>
       </div>

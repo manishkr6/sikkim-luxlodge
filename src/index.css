@@ -224,8 +224,6 @@
 
 
 /* hero siding image  */
-/* Background image cross-fade animation */
-/* Background slideshow - smooth crossfade */
 @keyframes slideshow {
   0%    { opacity: 0; }
   8%    { opacity: 1; }

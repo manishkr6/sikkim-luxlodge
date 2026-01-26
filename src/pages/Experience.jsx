@@ -4,74 +4,15 @@ import { assets, testimonials as guestReviews } from "../assets/assets";
 import AnimatedPage from "../components/AnimatedPage";
 import Reveal from "../components/Reveal";
 
+// Import new data
+import { experienceCategories, experienceData } from "../data/experienceData";
+
 const Experience = () => {
   const navigate = useNavigate();
 
-  const categories = [
-    { key: "All", label: "All Experiences" },
-    { key: "nature", label: "🌄 Nature & Sightseeing" },
-    { key: "adventure", label: "🏔 Adventure" },
-    { key: "wellness", label: "🧘 Wellness" },
-    { key: "food", label: "🍽 Food & Culture" },
-    { key: "inhouse", label: "🏡 In-house Experiences" },
-  ];
+  const categories = experienceCategories;
 
-  const data = [
-    {
-      id: 1,
-      title: "Guided Nature Walk",
-      desc: "Explore hidden trails with a local naturalist.",
-      duration: "2-3 hrs",
-      category: "nature",
-      image: assets.guidHiking,
-      featured: false,
-    },
-    {
-      id: 2,
-      title: "Sunrise Mountain Hike",
-      desc: "A sunrise trek to breathtaking viewpoints.",
-      duration: "4 hrs",
-      category: "adventure",
-      image: assets.sunriseHiking,
-      featured: true,
-    },
-    {
-      id: 3,
-      title: "Wellness Yoga Session",
-      desc: "Morning yoga with valley views and guided breathing.",
-      duration: "1 hr",
-      category: "wellness",
-      image: assets.yogaSession,
-      featured: false,
-    },
-    {
-      id: 4,
-      title: "Sikkimese Cooking Class",
-      desc: "Learn regional recipes and dine with hosts.",
-      duration: "2 hrs",
-      category: "food",
-      image: assets.cookingClass,
-      featured: false,
-    },
-    {
-      id: 5,
-      title: "In-house Birdwatching",
-      desc: "Guided birdwatching right in the hotel garden.",
-      duration: "1.5 hrs",
-      category: "inhouse",
-      image: assets.birdWatching,
-      featured: false,
-    },
-    {
-      id: 6,
-      title: "Photography Walk",
-      desc: "Capture the best local vistas with a pro photographer.",
-      duration: "3 hrs",
-      category: "nature",
-      image: assets.photoWalk,
-      featured: false,
-    },
-  ];
+  const data = experienceData;
 
   const [active, setActive] = useState("All");
 
@@ -83,7 +24,7 @@ const Experience = () => {
   const featured = data.find((d) => d.featured) || data[0];
 
   return (
-    <AnimatedPage className="pt-24 sm:pt-28 pb-16 md:pb-24 bg-linear-to-br from-slate-50 via-white to-slate-100">
+    <AnimatedPage className="pt-24 sm:pt-28 pb-16 md:pb-24 bg-gradient-to-br from-slate-50 via-white to-slate-100">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* HERO (full-width) */}
         <div className="w-full mb-10 sm:mb-12">
