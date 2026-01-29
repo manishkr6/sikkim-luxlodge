@@ -19,6 +19,8 @@ import Pork_Curry from "./experiencesPhoto/localDishes/Pork_Curry.jpg";
 import Sel_Roti from "./experiencesPhoto/localDishes/Sel_Roti.jpg";
 import Sinki_Gundruk from "./experiencesPhoto/localDishes/Sinki_Gundruk.webp";
 import Tongba_Millet_Beer from "./experiencesPhoto/localDishes/Tongba_Millet_Beer.jpg";
+import taipomomo from "./experiencesPhoto/localDishes/taipomomo.webp";
+import Phaley_Sikkimese_Bread_Making from "./experiencesPhoto/localDishes/Phaley_Sikkimese_Bread_Making.jpg";
 
 // trekkin
 import Maenam_Hill_Trek from "./experiencesPhoto/treakking/Maenam-Hill-Trek.jpg";
@@ -72,6 +74,8 @@ export const localDishesAssets = {
   Sel_Roti,
   Sinki_Gundruk,
   Tongba_Millet_Beer,
+  taipomomo,
+  Phaley_Sikkimese_Bread_Making
 };
 
 // Trekking

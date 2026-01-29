@@ -91,6 +91,24 @@ export const experienceData = [
   // Local Dishes
   {
     id: 9,
+    title: "Phaley & Sikkimese Bread Making",
+    desc: "Learn to prepare fluffy veg phaley (deep-fried bread) and other traditional Sikkimese breads with a local family.",
+    duration: "2 hrs",
+    category: "local-dishes",
+    image: localDishesAssets.Phaley_Sikkimese_Bread_Making,
+    featured: false,
+  },
+  {
+    id: 10,
+    title: "Taipo Momo",
+    desc: "Cook authentic Taipo Momo – juicy steamed pork/chicken dumplings with garlic, ginger, onion, and local Sikkimese spices.",
+    duration: "2 hrs",
+    category: "local-dishes",
+    image: localDishesAssets.taipomomo,
+    featured: true,
+  },
+  {
+    id: 11,
     title: "Sikkimese Momos & Thukpa Cooking Class",
     desc: "Learn to make authentic momos and thukpa with a local family.",
     duration: "2 hrs",
@@ -99,7 +117,7 @@ export const experienceData = [
     featured: false,
   },
   {
-    id: 10,
+    id: 12,
     title: "Traditional Sikkim Farm-to-Table Meal",
     desc: "Enjoy organic local dishes prepared with fresh farm ingredients.",
     duration: "1.5 hrs",
@@ -108,7 +126,7 @@ export const experienceData = [
     featured: false,
   },
   {
-    id: 11,
+    id: 13,
     title: "Sinki & Gundruk Fermentation Workshop",
     desc: "Learn the traditional art of fermenting leafy greens into sinki and gundruk with mountain families.",
     duration: "2.5 hrs",
@@ -117,7 +135,7 @@ export const experienceData = [
     featured: false,
   },
   {
-    id: 12,
+    id: 14,
     title: "Sikkimese Sel Roti & Sel Roti Making",
     desc: "Master the art of making crispy, ring-shaped rice doughnut sel roti – a festival favorite.",
     duration: "2 hrs",
@@ -126,7 +144,7 @@ export const experienceData = [
     featured: false,
   },
   {
-    id: 13,
+    id: 15,
     title: "Phagshapa & Pork Curry Cooking",
     desc: "Prepare classic Sikkimese pork dish phagshapa with radish and dried chilies.",
     duration: "2 hrs",
@@ -135,7 +153,7 @@ export const experienceData = [
     featured: false,
   },
   {
-    id: 14,
+    id: 16,
     title: "Kinema & Soybean Curry Class",
     desc: "Discover how to cook fermented soybean kinema curry – a protein-rich tribal delicacy.",
     duration: "1.5–2 hrs",
@@ -144,7 +162,7 @@ export const experienceData = [
     featured: false,
   },
   {
-    id: 15,
+    id: 17,
     title: "Sikkim Tongba & Millet Beer Experience",
     desc: "Learn the traditional way of brewing and drinking tongba – warm fermented millet beer.",
     duration: "1.5 hrs",
@@ -153,7 +171,7 @@ export const experienceData = [
     featured: false,
   },
   {
-    id: 16,
+    id: 18,
     title: "Chaang & Local Alcoholic Brew Tasting",
     desc: "Taste and understand chaang (rice beer) preparation and its cultural importance.",
     duration: "1 hr",
@@ -162,7 +180,7 @@ export const experienceData = [
     featured: false,
   },
   {
-    id: 17,
+    id: 19,
     title: "Sikkimese Chhurpi & Cheese Making",
     desc: "Hands-on session making hard yak cheese chhurpi and soft chhurpi variants.",
     duration: "2.5 hrs",
@@ -171,7 +189,7 @@ export const experienceData = [
     featured: false,
   },
   {
-    id: 18,
+    id: 20,
     title: "Ningro & Fern Shoot Foraging & Cooking",
     desc: "Forage fresh fern shoots (ningro) and cook them into a traditional stir-fry.",
     duration: "2 hrs",
@@ -182,7 +200,7 @@ export const experienceData = [
 
   // Trekking
   {
-    id: 19,
+    id: 21,
     title: "Maenam Hill Trek",
     desc: "Moderate trek with stunning Kanchenjunga views and red panda spotting.",
     duration: "5-6 hrs",
@@ -191,7 +209,7 @@ export const experienceData = [
     featured: true,
   },
   {
-    id: 20,
+    id: 22,
     title: "Yumthang Valley Nature Trek",
     desc: "Easy trek through rhododendron forests and hot springs.",
     duration: "4 hrs",
@@ -200,7 +218,7 @@ export const experienceData = [
     featured: false,
   },
   {
-    id: 21,
+    id: 23,
     title: "Dzongri – Goecha La Trek",
     desc: "Iconic multi-day trek to the base camp of Mt. Kanchenjunga with breathtaking alpine views.",
     duration: "6–8 days",
@@ -209,7 +227,7 @@ export const experienceData = [
     featured: true,
   },
   {
-    id: 22,
+    id: 24,
     title: "Kanchenjunga Base Camp Trek",
     desc: "Challenging high-altitude trek to view the third-highest mountain up close.",
     duration: "9–12 days",
@@ -218,7 +236,7 @@ export const experienceData = [
     featured: false,
   },
   {
-    id: 23,
+    id: 25,
     title: "Singalila Ridge Trek",
     desc: "Scenic border ridge walk with panoramic Kanchenjunga sunrise views from Sandakphu.",
     duration: "5–6 days",
@@ -227,7 +245,7 @@ export const experienceData = [
     featured: false,
   },
   {
-    id: 24,
+    id: 26,
     title: "Green Lake Trek",
     desc: "Remote and pristine trek to the emerald Green Lake beneath Kanchenjunga massif.",
     duration: "7–9 days",
@@ -236,7 +254,7 @@ export const experienceData = [
     featured: false,
   },
   {
-    id: 25,
+    id: 27,
     title: "Phedang – Tshoka Trek",
     desc: "Moderate rhododendron forest trek with beautiful camping spots and mountain vistas.",
     duration: "3–4 days",
@@ -245,7 +263,7 @@ export const experienceData = [
     featured: false,
   },
   {
-    id: 26,
+    id: 28,
     title: "Ravangla Maenam Borong Hot Spring Trek",
     desc: "Short scenic loop combining Maenam Hill views and natural hot springs relaxation.",
     duration: "2–3 days",
@@ -254,7 +272,7 @@ export const experienceData = [
     featured: false,
   },
   {
-    id: 27,
+    id: 29,
     title: "Yuksom to Dzongri Short Trek",
     desc: "Beginner-friendly introduction to high-altitude trekking with historic Yuksom start.",
     duration: "4–5 days",
@@ -263,7 +281,7 @@ export const experienceData = [
     featured: false,
   },
   {
-    id: 28,
+    id: 30,
     title: "Bakkhim – Tshoka Rhododendron Trek",
     desc: "Easy to moderate spring trek famous for massive rhododendron blooms.",
     duration: "3 days",
@@ -272,7 +290,7 @@ export const experienceData = [
     featured: false,
   },
   {
-    id: 29,
+    id: 31,
     title: "Pelling to Khecheopalri Lake Trek",
     desc: "Peaceful forest and village trail ending at the sacred wish-fulfilling lake.",
     duration: "2 days",
@@ -281,7 +299,7 @@ export const experienceData = [
     featured: false,
   },
   {
-    id: 30,
+    id: 32,
     title: "Pangolakha Wildlife Sanctuary Trek",
     desc: "Border-area trek with diverse wildlife, red pandas, and alpine meadows.",
     duration: "4–5 days",
@@ -301,7 +319,7 @@ export const experienceData = [
     featured: true,
   },
   {
-    id: 21,
+    id: 34,
     title: "Khecheopalri Lake Sacred Walk",
     desc: "Peaceful nature walk to the wish-fulfilling lake surrounded by forest.",
     duration: "2 hrs",
@@ -310,7 +328,7 @@ export const experienceData = [
     featured: false,
   },
   {
-    id: 31,
+    id: 35,
     title: "Tashiding Monastery Forest Loop",
     desc: "Serene circular walk through pine and prayer-flag-lined forest around one of Sikkim’s oldest monasteries.",
     duration: "1.5–2 hrs",
@@ -319,7 +337,7 @@ export const experienceData = [
     featured: false,
   },
   {
-    id: 22,
+    id: 36,
     title: "Temi Tea Garden Sunrise Tour",
     desc: "Morning walk through organic tea gardens with mountain views.",
     duration: "2 hrs",
@@ -328,7 +346,7 @@ export const experienceData = [
     featured: false,
   },
   {
-    id: 23,
+    id: 37,
     title: "Hidden Borong Hot Springs Walk",
     desc: "Quiet forest trail to natural sulphur hot springs with mountain backdrop — perfect for relaxation.",
     duration: "1.5–2 hrs",
@@ -337,7 +355,7 @@ export const experienceData = [
     featured: false,
   },
   {
-    id: 24,
+    id: 38,
     title: "Rabdentse Ruins Sunset Viewpoint",
     desc: "Explore the ancient royal ruins surrounded by dense forest with golden-hour Kanchenjunga views.",
     duration: "1–1.5 hrs",
@@ -346,7 +364,7 @@ export const experienceData = [
     featured: false,
   },
   {
-    id: 25,
+    id: 39,
     title: "Singshore Bridge Hidden Valley Trail",
     desc: "Short walk from Asia’s highest bridge into a secluded valley with river, pine forest and silence.",
     duration: "2 hrs",
@@ -355,7 +373,7 @@ export const experienceData = [
     featured: false,
   },
   {
-    id: 26,
+    id: 40,
     title: "Lingdum Monastery Secret Garden Walk",
     desc: "Peaceful stroll through the quiet gardens and rhododendron paths behind Ranka’s Lingdum Monastery.",
     duration: "1.5 hrs",
@@ -364,7 +382,7 @@ export const experienceData = [
     featured: false,
   },
   {
-    id: 27,
+    id: 41,
     title: "Zuluk Hidden Zigzag Road Sunrise",
     desc: "Early morning viewpoint from the famous 32 hairpin bends with dramatic Himalayan sunrise.",
     duration: "2–2.5 hrs (including drive)",
@@ -373,7 +391,7 @@ export const experienceData = [
     featured: false,
   },
   {
-    id: 28,
+    id: 42,
     title: "Nathang Valley Moonscape Treklet",
     desc: "Short walk through barren, moon-like high-altitude valley with 360° mountain panorama.",
     duration: "2 hrs",
@@ -382,7 +400,7 @@ export const experienceData = [
     featured: false,
   },
   {
-    id: 29,
+    id: 43,
     title: "Pangolakha Rhododendron Hidden Trail",
     desc: "Offbeat forest path bursting with rhododendrons in spring — rarely crowded.",
     duration: "3 hrs",
@@ -391,21 +409,12 @@ export const experienceData = [
     featured: false,
   },
   {
-    id: 30,
+    id: 44,
     title: "Bermyak Viewpoint Secret Trail",
     desc: "Quiet uphill walk to a hidden viewpoint offering unobstructed Kanchenjunga and alpine meadow views.",
     duration: "2 hrs",
     category: "nature-sightseeing",
     image: natureSightseeingAssets.Bermyak_Viewpoint_Secret_Trail,
-    featured: false,
-  },
-  {
-    id: 31,
-    title: "Tashiding Monastery Forest Loop",
-    desc: "Serene circular walk through pine and prayer-flag-lined forest around one of Sikkim’s oldest monasteries.",
-    duration: "1.5–2 hrs",
-    category: "nature-sightseeing",
-    image: natureSightseeingAssets.Tashiding_Monastery_Forest_Loop,
     featured: false,
   },
 ];

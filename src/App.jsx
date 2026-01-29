@@ -19,6 +19,7 @@ import Contact from "./pages/Contact";
 
 // ✅ ADD THIS IMPORT (THIS WAS THE ISSUE)
 import TravelPage from "./pages/TravelPage";
+import MainTravel from "./pages/MainTravel";
 
 const RouteWrapper = () => {
   const location = useLocation();
@@ -31,6 +32,7 @@ const RouteWrapper = () => {
       <Route path="/experience" element={<Experience />} />
       <Route path="/about" element={<About />} />
       <Route path="/contact" element={<Contact />} />
+      <Route path="/travel" element={<MainTravel />} />
       <Route path="/travel/:districtId" element={<TravelPage />} />
 
       {/* ✅ PROTECTED ROUTE */}

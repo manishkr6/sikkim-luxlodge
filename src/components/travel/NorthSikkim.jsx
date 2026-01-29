@@ -30,7 +30,8 @@ const NorthSikkim = () => {
             North Sikkim
           </h1>
           <p className="mt-4 text-lg text-gray-200 max-w-2xl">
-            The alpine wonderland, known for high-altitude lakes, flower valleys, hot springs and dramatic snowy landscapes.
+            The alpine wonderland, known for high-altitude lakes, flower
+            valleys, hot springs and dramatic snowy landscapes.
           </p>
         </div>
       </div>

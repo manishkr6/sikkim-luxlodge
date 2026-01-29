@@ -117,7 +117,7 @@ const Experience = () => {
             </ul>
             <div className="mt-6 flex flex-col sm:flex-row items-start sm:items-center gap-4">
               <button
-                onClick={() => navigate("/rooms")}
+                onClick={() => navigate("/contact")}
                 className="bg-red-500 hover:bg-red-600 text-white px-5 sm:px-6 py-2.5 sm:py-3 rounded-full text-sm sm:text-base font-medium"
               >
                 Book this experience

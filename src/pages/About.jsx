@@ -44,17 +44,16 @@ const About = () => {
   const pillars = [
     {
       title: "Who We Are",
-      desc: "A travel-first team obsessed with making every stay feel effortless, from browsing to check-out.",
+      desc: "A travel-first team obsessed with making every stay feel effortless, from browsing to check-out. We curate authentic Sikkim experiences with passion and local expertise.",
     },
     {
       title: "Our Mission",
-      desc: "Remove the friction from booking so you focus on the journey, not the logistics.",
+      desc: "Remove booking friction so you focus on the journey, not logistics. We simplify travel planning with transparency and deliver seamless, memorable stays from start to finish.",
     },
     {
       title: "What We Offer",
       list: [
         "Luxury, boutique, and budget stays",
-        "Verified partners and clear policies",
         "Flexible dates & transparent pricing",
         "In-app support when you need it",
       ],
