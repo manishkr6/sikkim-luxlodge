@@ -1,361 +1,210 @@
 import React, { useState } from "react";
+import axios from "axios";
 import { assets } from "../assets/assets";
 import Reveal from "./Reveal";
 
 const Contact = () => {
-  const [form, setForm] = useState({ name: "", email: "", message: "" });
-  const [success, setSuccess] = useState(false);
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+
   const [sending, setSending] = useState(false);
+  const [toast, setToast] = useState({ show: false, type: "", message: "" });
 
-  const handleChange = (e) =>
-    setForm((p) => ({ ...p, [e.target.name]: e.target.value }));
+  const showToast = (type, message) => {
+    setToast({ show: true, type, message });
+    setTimeout(() => setToast({ show: false, type: "", message: "" }), 4000);
+  };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+
+    // Basic client-side validation (optional but recommended)
+    if (!name.trim() || !email.trim() || !message.trim()) {
+      showToast("error", "Please fill in all fields");
+      return;
+    }
+
     setSending(true);
-    setTimeout(() => {
-      console.log("Contact submitted:", form);
-      setForm({ name: "", email: "", message: "" });
+
+    const dataToSend = { name, email, message };
+
+    try {
+      const response = await axios.post(
+        "http://localhost:5000/api/contact",
+        dataToSend
+      );
+
+      // Success
+      showToast("success", response.data.message || "Message sent successfully!");
+
+      // Clear form
+      setName("");
+      setEmail("");
+      setMessage("");
+    } catch (error) {
+      console.error("Form submission error:", error);
+      const errMsg =
+        error.response?.data?.message ||
+        "Failed to send message. Please try again.";
+      showToast("error", errMsg);
+    } finally {
       setSending(false);
-      setSuccess(true);
-      setTimeout(() => setSuccess(false), 4000);
-    }, 900);
+    }
   };
 
   return (
-    <div>
+    <div className="min-h-screen bg-gray-50">
       {/* Hero banner */}
-      <div className="relative h-48 sm:h-64 md:h-72 lg:h-96 overflow-hidden">
+      <div className="relative h-48 sm:h-64 md:h-80 lg:h-[28rem] xl:h-[32rem] overflow-hidden">
         <img
           src={assets.contactImg}
-          alt="banner"
+          alt="Contact banner"
           className="w-full h-full object-cover object-center"
         />
-        <div className="absolute inset-0 bg-black/40" />
-        <div className="absolute inset-0 flex flex-col items-center justify-center text-center text-white px-4 sm:px-6">
-          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-playfair font-semibold">
+        <div className="absolute inset-0 bg-black/45" />
+        <div className="absolute inset-0 flex flex-col items-center justify-center text-center text-white px-5 sm:px-8 md:px-12">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-playfair font-bold tracking-tight">
             Contact Us
           </h1>
-          <nav className="text-xs sm:text-sm text-white/80 mt-2">
-            <a href="/" className="underline hover:text-white transition">
+          <nav className="mt-3 text-sm sm:text-base text-white/80">
+            <a href="/" className="hover:text-white underline transition">
               Home
             </a>
-            <span className="mx-2">/</span>
-            <span>Contact</span>
+            <span className="mx-3">/</span>
+            <span className="font-medium">Contact</span>
           </nav>
         </div>
       </div>
 
-      {/* Main contact block */}
-      <section className="bg-white py-10 sm:py-12 md:py-16 px-4 sm:px-6 lg:px-8">
+      {/* Main content */}
+      <section className="py-12 sm:py-16 md:py-20 px-5 sm:px-6 lg:px-8 xl:px-12 bg-white">
         <div className="max-w-7xl mx-auto">
           <Reveal>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 lg:gap-10 items-start">
-              {/* Left: info */}
-              <div className="bg-white rounded-2xl p-5 sm:p-6 md:p-8 border border-gray-200 shadow-md transition-all duration-500 ease-out hover:shadow-2xl hover:border-red-300 hover:shadow-red-200/50 animate-fade-slide">
-                <p className="text-xs sm:text-sm text-red-500 uppercase tracking-wide">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 xl:gap-16 items-start">
+              {/* Contact Info */}
+              <div className="bg-white rounded-2xl p-6 sm:p-8 lg:p-10 border border-gray-200 shadow-lg hover:shadow-xl transition-shadow duration-300">
+                <p className="text-sm uppercase tracking-wider text-red-600 font-medium">
                   Contact Us
                 </p>
-
-                <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-playfair text-gray-900 mt-2">
+                <h2 className="mt-3 text-3xl sm:text-4xl font-playfair text-gray-900">
                   Get In Touch
                 </h2>
-
-                <p className="mt-3 md:mt-4 text-sm sm:text-base text-gray-600 leading-relaxed">
+                <p className="mt-4 text-gray-600 leading-relaxed text-base">
                   Have a question or need help with your booking? Reach us by
-                  phone, email or send a message using the form.
+                  phone, email or send a message using the form below.
                 </p>
 
-                <div className="mt-6 md:mt-8 space-y-4 md:space-y-5 text-gray-700">
-                  {/* Address */}
-                  <div className="flex items-start gap-3 md:gap-4">
+                <div className="mt-8 space-y-6 text-gray-700">
+                  <div className="flex items-start gap-4">
                     <svg
-                      className="w-5 h-5 md:w-6 md:h-6 text-red-500 shrink-0"
+                      className="w-6 h-6 text-red-500 mt-1 shrink-0"
                       fill="currentColor"
                       viewBox="0 0 24 24"
                     >
                       <path d="M12 2a10 10 0 100 20 10 10 0 000-20zM8 11h8v2H8z" />
                     </svg>
                     <div>
-                      <div className="text-xs md:text-sm text-gray-500">
-                        Address
-                      </div>
-                      <div className="text-sm font-medium">
-                        Gangtok, Sikkim 737101
-                      </div>
+                      <div className="text-sm text-gray-500">Address</div>
+                      <div className="font-medium">Gangtok, Sikkim 737101</div>
                     </div>
                   </div>
 
-                  {/* Phone */}
-                  <div className="flex items-start gap-3 md:gap-4">
+                  <div className="flex items-start gap-4">
                     <svg
-                      className="w-5 h-5 md:w-6 md:h-6 text-red-500 shrink-0"
+                      className="w-6 h-6 text-red-500 mt-1 shrink-0"
                       fill="currentColor"
                       viewBox="0 0 24 24"
                     >
-                      <path d="M21 8V7l-3 2-2-1-3 2v6l3-2 2 1 3-2V8z" />
+                      <path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24 11.36 11.36 0 003.54.57 1 1 0 011 1v3.5a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1 11.36 11.36 0 00.57 3.54 1 1 0 01-.24 1.01l-2.2 2.2z" />
                     </svg>
                     <div>
-                      <div className="text-xs md:text-sm text-gray-500">
-                        Phone
-                      </div>
-                      <div className="text-sm font-medium">
-                        <a
-                          href={`tel:${
-                            assets?.hotelDummyData?.contact || "+0123456789"
-                          }`}
-                          className="text-red-600 hover:underline"
-                        >
-                          {assets?.hotelDummyData?.contact || "+0123456789"}
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Email */}
-                  <div className="flex items-start gap-3 md:gap-4">
-                    <svg
-                      className="w-5 h-5 md:w-6 md:h-6 text-red-500 shrink-0"
-                      fill="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path d="M2 6h20v2H2z" />
-                    </svg>
-                    <div>
-                      <div className="text-xs md:text-sm text-gray-500">
-                        Email
-                      </div>
-                      <div className="text-sm font-medium">
-                        <a
-                          href="mailto:support@example.com"
-                          className="text-red-600 hover:underline"
-                        >
-                          support@example.com
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Social Icons */}
-                  <div className="pt-4 flex items-center gap-3 md:gap-4">
-                    <a
-                      href="#"
-                      className="w-8 h-8 md:w-9 md:h-9 rounded-full bg-red-50 flex items-center justify-center shadow-sm hover:bg-red-100 hover:shadow-md transition"
-                    >
-                      <img
-                        src={assets.instagramIcon}
-                        alt="insta"
-                        className="w-4"
-                      />
-                    </a>
-
-                    <a
-                      href="#"
-                      className="w-8 h-8 md:w-9 md:h-9 rounded-full bg-red-50 flex items-center justify-center shadow-sm hover:bg-red-100 hover:shadow-md transition"
-                    >
-                      <img src={assets.facebookIcon} alt="fb" className="w-4" />
-                    </a>
-
-                    <a
-                      href="#"
-                      className="w-8 h-8 md:w-9 md:h-9 rounded-full bg-red-50 flex items-center justify-center shadow-sm hover:bg-red-100 hover:shadow-md transition"
-                    >
-                      <img src={assets.twitterIcon} alt="tw" className="w-4" />
-                    </a>
-                  </div>
-                </div>
-              </div>
-
-              {/* Right: form card */}
-              <div className="animate-fade-slide">
-                <div
-                  className="
-                    bg-white
-                    rounded-2xl
-                    border border-gray-200
-                    shadow-md
-                    p-5 sm:p-6 md:p-8
-                    transition-all duration-500
-                    hover:shadow-2xl
-                    hover:border-red-300
-                    hover:shadow-red-200/50
-                  "
-                >
-                  <h3 className="font-playfair text-lg sm:text-xl md:text-2xl text-gray-900">
-                    Write Us A Message
-                  </h3>
-
-                  <form
-                    onSubmit={handleSubmit}
-                    className="mt-4 grid grid-cols-1 gap-3 md:gap-4"
-                  >
-                    {/* Name */}
-                    <input
-                      name="name"
-                      value={form.name}
-                      onChange={handleChange}
-                      placeholder="Name"
-                      required
-                      className="
-                        w-full
-                        rounded-full
-                        border border-gray-200
-                        px-4 py-2.5 sm:py-3
-                        text-sm sm:text-base
-                        outline-none
-                        transition
-                        focus:ring-2 focus:ring-red-200
-                        focus:border-red-300
-                      "
-                    />
-
-                    {/* Email */}
-                    <input
-                      name="email"
-                      value={form.email}
-                      onChange={handleChange}
-                      placeholder="Email"
-                      required
-                      type="email"
-                      className="
-                        w-full
-                        rounded-full
-                        border border-gray-200
-                        px-4 py-2.5 sm:py-3
-                        text-sm sm:text-base
-                        outline-none
-                        transition
-                        focus:ring-2 focus:ring-red-200
-                        focus:border-red-300
-                      "
-                    />
-
-                    {/* Message */}
-                    <textarea
-                      name="message"
-                      value={form.message}
-                      onChange={handleChange}
-                      rows={5}
-                      placeholder="Message"
-                      required
-                      className="
-                        w-full
-                        rounded-xl
-                        border border-gray-200
-                        px-4 py-3
-                        text-sm sm:text-base
-                        outline-none
-                        resize-none
-                        transition
-                        focus:ring-2 focus:ring-red-200
-                        focus:border-red-300
-                      "
-                    />
-
-                    {/* Footer */}
-                    <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mt-2">
-                      <div className="text-xs sm:text-sm text-gray-500">
-                        We'll get back within 24 hours
-                      </div>
-
-                      <button
-                        type="submit"
-                        disabled={sending}
-                        className="
-                          bg-red-500
-                          hover:bg-red-600
-                          active:scale-95
-                          text-white
-                          px-5 sm:px-6 py-2.5 sm:py-3
-                          rounded-full
-                          text-sm sm:text-base
-                          shadow-md
-                          hover:shadow-lg
-                          transition-all
-                          disabled:opacity-60
-                          disabled:cursor-not-allowed
-                        "
+                      <div className="text-sm text-gray-500">Phone</div>
+                      <a
+                        href={`tel:${assets?.hotelDummyData?.contact || "+91 12345 67890"}`}
+                        className="font-medium text-red-600 hover:underline"
                       >
-                        {sending ? "Sending..." : "Send Message"}
-                      </button>
-                    </div>
-
-                    {/* Success Message */}
-                    {success && (
-                      <div className="mt-3 text-sm text-green-600 animate-fade-in">
-                        Thanks! Your message has been sent.
-                      </div>
-                    )}
-                  </form>
-                </div>
-              </div>
-            </div>
-
-            {/* Stats row */}
-            <div className="mt-10 sm:mt-12 animate-fade-slide">
-              <div
-                className="
-                  bg-white
-                  rounded-2xl
-                  p-5 sm:p-6 md:p-8
-                  border border-gray-200
-                  shadow-md
-                  hover:shadow-2xl
-                  hover:border-red-300
-                  hover:shadow-red-200/50
-                  transition-all duration-500
-                "
-              >
-                <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 md:gap-6 text-center">
-                  {/* Happy Clients */}
-                  <div className="py-4 rounded-xl hover:bg-red-50 transition">
-                    <div className="text-xl sm:text-2xl md:text-3xl font-semibold text-red-600">
-                      20k
-                    </div>
-                    <div className="mt-1 text-xs sm:text-sm text-gray-600">
-                      Happy Clients
+                        {assets?.hotelDummyData?.contact || "+91 12345 67890"}
+                      </a>
                     </div>
                   </div>
 
-                  {/* Awards */}
-                  <div className="py-4 rounded-xl hover:bg-red-50 transition">
-                    <div className="text-xl sm:text-2xl md:text-3xl font-semibold text-red-600">
-                      250+
-                    </div>
-                    <div className="mt-1 text-xs sm:text-sm text-gray-600">
-                      Awards
-                    </div>
-                  </div>
-
-                  {/* Active Members */}
-                  <div className="py-4 rounded-xl hover:bg-red-50 transition">
-                    <div className="text-xl sm:text-2xl md:text-3xl font-semibold text-red-600">
-                      15k
-                    </div>
-                    <div className="mt-1 text-xs sm:text-sm text-gray-600">
-                      Active Members
-                    </div>
-                  </div>
-
-                  {/* Tour Destinations */}
-                  <div className="py-4 rounded-xl hover:bg-red-50 transition">
-                    <div className="text-xl sm:text-2xl md:text-3xl font-semibold text-red-600">
-                      10+
-                    </div>
-                    <div className="mt-1 text-xs sm:text-sm text-gray-600">
-                      Tour Destinations
+                  <div className="flex items-start gap-4">
+                    <svg
+                      className="w-6 h-6 text-red-500 mt-1 shrink-0"
+                      fill="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
+                    </svg>
+                    <div>
+                      <div className="text-sm text-gray-500">Email</div>
+                      <a
+                        href="mailto:support@example.com"
+                        className="font-medium text-red-600 hover:underline"
+                      >
+                        support@example.com
+                      </a>
                     </div>
                   </div>
                 </div>
               </div>
+
+              {/* Form */}
+              <div className="bg-white rounded-2xl border border-gray-200 shadow-lg p-6 sm:p-8 lg:p-10 hover:shadow-xl transition-shadow duration-300">
+                <h3 className="text-2xl sm:text-3xl font-playfair text-gray-900">
+                  Write Us A Message
+                </h3>
+
+                <form onSubmit={handleSubmit} className="mt-6 space-y-5">
+                  <input
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                    placeholder="Your Name"
+                    required
+                    className="w-full rounded-full border border-gray-200 px-5 py-3 text-base outline-none focus:border-red-400 focus:ring-2 focus:ring-red-200 transition"
+                  />
+
+                  <input
+                    type="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    placeholder="Your Email"
+                    required
+                    className="w-full rounded-full border border-gray-200 px-5 py-3 text-base outline-none focus:border-red-400 focus:ring-2 focus:ring-red-200 transition"
+                  />
+
+                  <textarea
+                    value={message}
+                    onChange={(e) => setMessage(e.target.value)}
+                    rows={5}
+                    placeholder="Your Message..."
+                    required
+                    className="w-full rounded-2xl border border-gray-200 px-5 py-4 text-base outline-none resize-none focus:border-red-400 focus:ring-2 focus:ring-red-200 transition"
+                  />
+
+                  <button
+                    type="submit"
+                    disabled={sending}
+                    className={`w-full py-3.5 px-8 rounded-full text-white font-medium transition-all
+                      ${
+                        sending
+                          ? "bg-red-400 cursor-not-allowed"
+                          : "bg-red-600 hover:bg-red-700 active:bg-red-800"
+                      }`}
+                  >
+                    {sending ? "Sending..." : "Send Message"}
+                  </button>
+                </form>
+              </div>
             </div>
 
-            {/* Map */}
-            <div className="mt-8 sm:mt-10 overflow-hidden rounded-lg">
+            {/* Google Map */}
+            <div className="mt-12 lg:mt-16 rounded-2xl overflow-hidden shadow-xl border border-gray-200">
               <iframe
-                title="Gangtok map"
+                title="Gangtok location map"
                 src="https://www.google.com/maps?q=Gangtok+Sikkim&output=embed"
-                className="w-full h-56 sm:h-64 md:h-80 border-0 filter saturate-150 contrast-105 shadow-lg rounded-lg"
+                className="w-full h-64 sm:h-80 md:h-96 lg:h-[28rem] border-0"
                 allowFullScreen=""
                 loading="lazy"
               />
@@ -363,6 +212,24 @@ const Contact = () => {
           </Reveal>
         </div>
       </section>
+
+      {/* Toast Notification */}
+      {toast.show && (
+        <div className="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 min-w-[320px] max-w-[90vw] px-4">
+          <div
+            className={`flex items-center justify-between gap-4 px-5 py-4 rounded-xl shadow-2xl text-white font-medium transition-all duration-300 transform
+              ${toast.type === "success" ? "bg-green-600" : "bg-red-600"}`}
+          >
+            <span>{toast.message}</span>
+            <button
+              onClick={() => setToast({ show: false, type: "", message: "" })}
+              className="text-white/80 hover:text-white text-xl leading-none"
+            >
+              ×
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
