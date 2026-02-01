@@ -161,7 +161,6 @@ const Navbar = () => {
               ) : (
                 <a
                   href={link.path}
-                  onClick={() => navigate(link.path)}
                   className={`flex items-center relative pb-1 ${
                     isScrolled ? "text-gray-700" : "text-white"
                   }`}
