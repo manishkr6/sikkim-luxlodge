@@ -8,6 +8,7 @@ import SikkimDistrict from "../components/SikkimDistrict";
 
 import AnimatedPage from "../components/AnimatedPage";
 import Reveal from "../components/Reveal";
+import ImageSliding from "../components/ImageSliding";
 
 const Home = () => {
   return (
@@ -21,6 +22,9 @@ const Home = () => {
       </Reveal>
       <Reveal className="mt-12">
         <ExclusiveOffers />
+      </Reveal>
+      <Reveal className="mt-12 bg-white/50">
+        <ImageSliding />
       </Reveal>
       <Reveal className="mt-12">
         <Testimonial />

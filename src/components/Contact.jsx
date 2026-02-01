@@ -19,7 +19,7 @@ const Contact = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Basic client-side validation (optional but recommended)
+    // Basic client-side validation
     if (!name.trim() || !email.trim() || !message.trim()) {
       showToast("error", "Please fill in all fields");
       return;
