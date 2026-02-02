@@ -7,7 +7,7 @@ const Navbar = () => {
   const navLinks = [
     { name: "Home", path: "/" },
     { name: "About", path: "/about" },
-    { name: "Travel", path: "/travel" },
+    { name: "Travel", path: "/travel", isDropdown: true },
     { name: "Hotels", path: "/rooms" },
     { name: "Experience", path: "/experience" },
     { name: "Contact", path: "/contact" },
@@ -28,7 +28,6 @@ const Navbar = () => {
 
   const navigate = useNavigate();
   const location = useLocation();
-
   const { isLoaded, isSignedIn } = useUser();
 
   const searchRef = useRef(null);
@@ -37,8 +36,6 @@ const Navbar = () => {
     if (location.pathname !== "/") {
       setIsScrolled(true);
       return;
-    } else {
-      setIsScrolled(false);
     }
 
     const handleScroll = () => {
@@ -79,6 +76,7 @@ const Navbar = () => {
   const closeAll = () => {
     setIsMenuOpen(false);
     setOpenMobileTravel(false);
+    setIsSearchOpen(false);
   };
 
   return (
@@ -98,94 +96,90 @@ const Navbar = () => {
         />
       </Link>
 
-      {/* Desktop Nav - All items use same alignment structure */}
+      {/* Desktop Navigation */}
       <div className="hidden md:flex items-center gap-6 lg:gap-10">
-        {navLinks.map((link, i) => {
-          const isTravel = link.name === "Travel";
-
-          return (
-            <div key={i} className="relative group">
-              {isTravel ? (
-                <div className="relative">
-                  <a
-                    href={link.path}
-                    className={`flex items-center gap-1.5 relative pb-1 ${
-                      isScrolled ? "text-gray-700" : "text-white"
-                    }`}
-                  >
-                    <span>{link.name}</span>
-                    <svg
-                      className={`w-4 h-4 transition-transform group-hover:rotate-180 ${
-                        isScrolled ? "text-gray-600" : "text-white/90"
-                      }`}
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M19 9l-7 7-7-7"
-                      />
-                    </svg>
-                    <span
-                      className={`absolute bottom-0 left-0 h-0.5 bg-current transition-all duration-300 w-0 group-hover:w-full ${
-                        isScrolled ? "bg-gray-700" : "bg-white"
-                      }`}
-                    />
-                  </a>
-
-                  {/* Dropdown */}
-                  <div
-                    className={`
-                      absolute left-0 top-full mt-0 w-52 bg-white shadow-xl rounded-lg py-2 
-                      opacity-0 invisible pointer-events-none translate-y-1
-                      group-hover:opacity-100 group-hover:visible group-hover:pointer-events-auto group-hover:translate-y-0
-                      transition-all duration-150 ease-in-out z-50
-                      before:content-[''] before:absolute before:-top-3 before:left-0 before:h-4 before:w-full
-                    `}
-                  >
-                    {sikkimRegions.map((region) => (
-                      <Link
-                        key={region.id}
-                        to={`/travel/${region.id}`}
-                        className="block px-5 py-2.5 text-gray-700 hover:bg-gray-50 hover:text-gray-900 transition-colors duration-150"
-                        onClick={closeAll}
-                      >
-                        {region.name}
-                      </Link>
-                    ))}
-                  </div>
-                </div>
-              ) : (
-                <a
-                  href={link.path}
-                  className={`flex items-center relative pb-1 ${
+        {navLinks.map((link) => (
+          <div key={link.name} className="relative group">
+            {link.isDropdown ? (
+              <>
+                <button
+                  type="button"
+                  className={`flex items-center gap-1.5 relative pb-1 ${
                     isScrolled ? "text-gray-700" : "text-white"
                   }`}
                 >
                   <span>{link.name}</span>
+                  <svg
+                    className={`w-4 h-4 transition-transform group-hover:rotate-180 ${
+                      isScrolled ? "text-gray-600" : "text-white/90"
+                    }`}
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M19 9l-7 7-7-7"
+                    />
+                  </svg>
                   <span
                     className={`absolute bottom-0 left-0 h-0.5 bg-current transition-all duration-300 w-0 group-hover:w-full ${
                       isScrolled ? "bg-gray-700" : "bg-white"
                     }`}
                   />
-                </a>
-              )}
-            </div>
-          );
-        })}
+                </button>
+
+                {/* Dropdown */}
+                <div
+                  className={`
+                    absolute left-0 top-full mt-2 w-52 bg-white shadow-xl rounded-lg py-2 
+                    opacity-0 invisible pointer-events-none translate-y-1
+                    group-hover:opacity-100 group-hover:visible group-hover:pointer-events-auto group-hover:translate-y-0
+                    transition-all duration-150 ease-in-out z-50
+                  `}
+                >
+                  {sikkimRegions.map((region) => (
+                    <Link
+                      key={region.id}
+                      to={`/travel/${region.id}`}
+                      className="block px-5 py-2.5 text-gray-700 hover:bg-gray-50 hover:text-gray-900 transition-colors"
+                      onClick={closeAll}
+                    >
+                      {region.name}
+                    </Link>
+                  ))}
+                </div>
+              </>
+            ) : (
+              <Link
+                to={link.path}
+                className={`relative pb-1 ${
+                  isScrolled ? "text-gray-700" : "text-white"
+                }`}
+                onClick={closeAll}
+              >
+                <span>{link.name}</span>
+                <span
+                  className={`absolute bottom-0 left-0 h-0.5 bg-current transition-all duration-300 w-0 hover:w-full ${
+                    isScrolled ? "bg-gray-700" : "bg-white"
+                  }`}
+                />
+              </Link>
+            )}
+          </div>
+        ))}
       </div>
 
-      {/* Desktop Right */}
+      {/* Desktop Right Section */}
       <div className="hidden md:flex items-center gap-4">
         <div className="relative" ref={searchRef}>
           <img
             onClick={() => setIsSearchOpen(!isSearchOpen)}
             src={assets.searchIcon}
             alt="search"
-            className={`${isScrolled && "invert"} h-7 cursor-pointer`}
+            className={`h-7 cursor-pointer ${isScrolled ? "invert" : ""}`}
           />
 
           {isSearchOpen && (
@@ -197,7 +191,7 @@ const Navbar = () => {
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 placeholder="Search hotels..."
-                className="w-full outline-none"
+                className="w-full outline-none text-base"
                 autoFocus
               />
             </form>
@@ -217,19 +211,19 @@ const Navbar = () => {
           />
         ) : (
           <SignInButton mode="modal">
-            <button className="bg-black text-white px-8 py-2.5 rounded-full">
+            <button className="bg-black text-white px-8 py-2.5 rounded-full font-medium">
               Login
             </button>
           </SignInButton>
         )}
       </div>
 
-      {/* Mobile Menu Toggle */}
+      {/* Mobile Icons */}
       <div className="md:hidden flex items-center gap-4">
         <img
           src={assets.searchIcon}
           alt="search"
-          className={`h-6 cursor-pointer ${isScrolled && "invert"}`}
+          className={`h-6 cursor-pointer ${isScrolled ? "invert" : ""}`}
           onClick={() => setIsSearchOpen(!isSearchOpen)}
         />
 
@@ -238,24 +232,24 @@ const Navbar = () => {
           className="flex flex-col justify-between w-6 h-5 focus:outline-none"
         >
           <span
-            className={`block h-0.5 w-full bg-gray-900 transition-transform duration-300 ${
+            className={`block h-0.5 w-full bg-current transition-all duration-300 ${
               isMenuOpen ? "rotate-45 translate-y-2.5" : ""
-            }`}
+            } ${isScrolled ? "bg-gray-900" : "bg-white"}`}
           />
           <span
-            className={`block h-0.5 w-full bg-gray-900 transition-opacity duration-300 ${
+            className={`block h-0.5 w-full bg-current transition-opacity duration-300 ${
               isMenuOpen ? "opacity-0" : "opacity-100"
-            }`}
+            } ${isScrolled ? "bg-gray-900" : "bg-white"}`}
           />
           <span
-            className={`block h-0.5 w-full bg-gray-900 transition-transform duration-300 ${
+            className={`block h-0.5 w-full bg-current transition-all duration-300 ${
               isMenuOpen ? "-rotate-45 -translate-y-2.5" : ""
-            }`}
+            } ${isScrolled ? "bg-gray-900" : "bg-white"}`}
           />
         </button>
       </div>
 
-      {/* Mobile Search Form */}
+      {/* Mobile Search */}
       {isSearchOpen && (
         <div
           ref={searchRef}
@@ -279,25 +273,25 @@ const Navbar = () => {
         </div>
       )}
 
-      {/* Mobile Menu */}
+      {/* Mobile Full-Screen Menu */}
       <div
-        className={`fixed top-0 left-0 w-full h-screen bg-white flex flex-col items-center justify-center gap-6 transition-transform duration-500 z-40 ${
+        className={`fixed inset-0 bg-white flex flex-col items-center justify-center gap-6 transition-transform duration-500 z-40 md:hidden ${
           isMenuOpen ? "translate-x-0" : "-translate-x-full"
         }`}
       >
         <button
           onClick={() => setIsMenuOpen(false)}
-          className="absolute top-6 right-6 text-3xl text-gray-800 hover:text-gray-500 transition-colors"
+          className="absolute top-6 right-6 text-4xl text-gray-800 hover:text-gray-500 transition-colors"
           aria-label="Close menu"
         >
-          ✕
+          ×
         </button>
 
-        <div className="flex flex-col items-center gap-8 w-full max-w-xs text-center">
-          {navLinks.map((link, i) => {
-            if (link.name === "Travel") {
+        <div className="flex flex-col items-center gap-10 w-full max-w-xs text-center">
+          {navLinks.map((link) => {
+            if (link.isDropdown) {
               return (
-                <div key={i} className="w-full">
+                <div key={link.name} className="w-full">
                   <button
                     onClick={() => setOpenMobileTravel(!openMobileTravel)}
                     className="w-full flex items-center justify-center gap-3 text-2xl font-medium text-gray-800 hover:text-gray-600 transition-colors py-3"
@@ -319,7 +313,7 @@ const Navbar = () => {
                   </button>
 
                   {openMobileTravel && (
-                    <div className="mt-2 w-full flex flex-col gap-4">
+                    <div className="mt-4 flex flex-col gap-5">
                       {sikkimRegions.map((region) => (
                         <Link
                           key={region.id}
@@ -337,23 +331,23 @@ const Navbar = () => {
             }
 
             return (
-              <a
-                key={i}
-                href={link.path}
+              <Link
+                key={link.name}
+                to={link.path}
                 className="text-2xl font-medium text-gray-800 hover:text-gray-600 transition-colors"
                 onClick={closeAll}
               >
                 {link.name}
-              </a>
+              </Link>
             );
           })}
 
-          <div className="mt-8">
+          <div className="mt-12">
             {!isLoaded ? (
               <div className="w-32 h-10 bg-gray-200 rounded-full animate-pulse" />
             ) : !isSignedIn ? (
               <SignInButton mode="modal">
-                <button className="bg-black text-white px-10 py-3 rounded-full text-lg">
+                <button className="bg-black text-white px-12 py-4 rounded-full text-xl font-medium">
                   Login
                 </button>
               </SignInButton>
