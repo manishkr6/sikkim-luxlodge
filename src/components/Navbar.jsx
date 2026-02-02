@@ -102,11 +102,12 @@ const Navbar = () => {
           <div key={link.name} className="relative group">
             {link.isDropdown ? (
               <>
-                <button
-                  type="button"
+                <Link
+                  to={link.path}
                   className={`flex items-center gap-1.5 relative pb-1 ${
                     isScrolled ? "text-gray-700" : "text-white"
                   }`}
+                  onClick={closeAll}
                 >
                   <span>{link.name}</span>
                   <svg
@@ -129,7 +130,7 @@ const Navbar = () => {
                       isScrolled ? "bg-gray-700" : "bg-white"
                     }`}
                   />
-                </button>
+                </Link>
 
                 {/* Dropdown */}
                 <div
@@ -292,25 +293,37 @@ const Navbar = () => {
             if (link.isDropdown) {
               return (
                 <div key={link.name} className="w-full">
-                  <button
-                    onClick={() => setOpenMobileTravel(!openMobileTravel)}
-                    className="w-full flex items-center justify-center gap-3 text-2xl font-medium text-gray-800 hover:text-gray-600 transition-colors py-3"
-                  >
-                    <span>{link.name}</span>
-                    <svg
-                      className={`w-6 h-6 transition-transform ${openMobileTravel ? "rotate-180" : ""}`}
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
+                  {/* Travel with link + separate toggle arrow */}
+                  <div className="w-full flex items-center justify-center gap-3 py-3">
+                    <Link
+                      to={link.path}
+                      className="text-2xl font-medium text-gray-800 hover:text-gray-600 transition-colors"
+                      onClick={closeAll}
                     >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M19 9l-7 7-7-7"
-                      />
-                    </svg>
-                  </button>
+                      {link.name}
+                    </Link>
+                    <button
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        setOpenMobileTravel(!openMobileTravel);
+                      }}
+                      className="p-1 text-gray-800 hover:text-gray-600"
+                    >
+                      <svg
+                        className={`w-6 h-6 transition-transform ${openMobileTravel ? "rotate-180" : ""}`}
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M19 9l-7 7-7-7"
+                        />
+                      </svg>
+                    </button>
+                  </div>
 
                   {openMobileTravel && (
                     <div className="mt-4 flex flex-col gap-5">
