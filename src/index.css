@@ -224,7 +224,7 @@
 
 
 /* hero siding image  */
-@keyframes slideshow {
+/* @keyframes slideshow {
   0%    { opacity: 0; }
   8%    { opacity: 1; }
   25%   { opacity: 1; }
@@ -247,4 +247,4 @@
 
 .animate-slide-4 {
   animation: slideshow 32s infinite 24s;
-}
+} */

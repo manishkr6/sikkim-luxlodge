@@ -46,30 +46,12 @@ const Hero = () => {
 
   return (
     <div className="relative flex flex-col items-start justify-center px-6 md:p-16 lg:p-32 text-white h-screen overflow-hidden">
-      {/* Background Slider */}
+      
+      {/* Single Background Image - Gangtok */}
       <div className="absolute inset-0">
-        {/* Image 1 - starts visible */}
         <div
-          className="absolute inset-0 bg-no-repeat bg-cover bg-center transition-opacity duration-[2000ms] ease-in-out opacity-100 animate-slide-1"
+          className="absolute inset-0 bg-no-repeat bg-cover bg-center"
           style={{ backgroundImage: `url("/src/assets/sikkim.jpg")` }}
-        />
-
-        {/* Image 2 */}
-        <div
-          className="absolute inset-0 bg-no-repeat bg-cover bg-center transition-opacity duration-[2000ms] ease-in-out opacity-0 animate-slide-2"
-          style={{ backgroundImage: `url("/src/assets/east-sikkim.jpg")` }}
-        />
-
-        {/* Image 3 */}
-        <div
-          className="absolute inset-0 bg-no-repeat bg-cover bg-center transition-opacity duration-[2000ms] ease-in-out opacity-0 animate-slide-3"
-          style={{ backgroundImage: `url("/src/assets/west-sikkim.jpg")` }}
-        />
-
-        {/* Image 4 */}
-        <div
-          className="absolute inset-0 bg-no-repeat bg-cover bg-center transition-opacity duration-[2000ms] ease-in-out opacity-0 animate-slide-4"
-          style={{ backgroundImage: `url("/src/assets/north-sikkim.jpg")` }}
         />
       </div>
 

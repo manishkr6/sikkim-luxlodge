@@ -2,6 +2,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { east_sikkim_assets, north_sikkim_assets, south_sikkim_assets, west_sikkim_assets } from '../assets/assets';
+import { Link } from 'react-router-dom';
 
 const images = [
   east_sikkim_assets.mg_marg,
@@ -77,7 +78,8 @@ const HomeHero = () => {
         </p>
 
         <div className="flex flex-col xs:flex-row gap-4 xs:gap-5 sm:gap-6">
-          <button className="
+          <Link to={"/rooms"}
+           className="
             px-7 py-3.5 xs:px-8 xs:py-4 sm:px-10 sm:py-5 
             bg-teal-600 hover:bg-teal-700 
             text-white font-semibold 
@@ -88,9 +90,11 @@ const HomeHero = () => {
             min-w-[160px] xs:min-w-[180px]
           ">
             Explore Stays
-          </button>
+          </Link>
 
-          <button className="
+          <Link
+            to={"/travel"}
+           className="
             px-7 py-3.5 xs:px-8 xs:py-4 sm:px-10 sm:py-5 
             bg-transparent border-2 border-gray-400 
             text-gray-700 font-semibold 
@@ -101,7 +105,7 @@ const HomeHero = () => {
             min-w-[160px] xs:min-w-[180px]
           ">
             See All Districts
-          </button>
+          </Link>
         </div>
       </div>
 
