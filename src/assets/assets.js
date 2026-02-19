@@ -47,6 +47,7 @@ import cookingClass from "./cooking-class.jpg";
 import birdWatching from "./bird-watching.jpg";
 import photoWalk from "./photo-walk.jpg";
 import contactImg from "./contact.jpg";
+import sikkim from "./sikkim.jpg";
 
 // East Sikkim
 import banjhakiri_falls from "./eastSikkimPhoto/banjhakiri-falls.jpg";

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { assets, districts } from "../assets/assets";
+import sikkim from "../assets/sikkim.jpg";
 
 const Hero = () => {
   const navigate = useNavigate();
@@ -46,12 +47,11 @@ const Hero = () => {
 
   return (
     <div className="relative flex flex-col items-start justify-center px-6 md:p-16 lg:p-32 text-white h-screen overflow-hidden">
-      
       {/* Single Background Image - Gangtok */}
       <div className="absolute inset-0">
         <div
           className="absolute inset-0 bg-no-repeat bg-cover bg-center"
-          style={{ backgroundImage: `url("/src/assets/sikkim.jpg")` }}
+          style={{ backgroundImage: `url(${sikkim})` }}
         />
       </div>
 
