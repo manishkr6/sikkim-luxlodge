@@ -13,7 +13,7 @@ const WestSikkim = () => {
       <div className="relative h-[70vh] md:h-[80vh]">
         <img
           src={westHero}
-          alt="East Sikkim"
+          alt="West Sikkim"
           className="w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent" />

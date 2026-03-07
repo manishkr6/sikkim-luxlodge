@@ -65,6 +65,12 @@ const DistrictPage = ({ districtKey }) => {
                 <img
                   src={attr.img}
                   alt={attr.title}
+                  crossOrigin="anonymous"
+                  referrerPolicy="no-referrer"
+                  onError={(e) => {
+                    e.target.onerror = null;
+                    e.target.src = "https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/Gangtok_city%2C_Sikkim%2C_India.jpg/1280px-Gangtok_city%2C_Sikkim%2C_India.jpg";
+                  }}
                   className="
               w-full h-48 sm:h-56 object-cover
               transition-transform duration-500 ease-out

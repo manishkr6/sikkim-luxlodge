@@ -81,10 +81,10 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`fixed top-0 left-0 w-full flex items-center justify-between px-4 md:px-16 lg:px-24 xl:px-32 transition-all duration-500 z-50 ${
+      className={`fixed top-0 left-0 w-full flex items-center justify-between px-4 md:px-16 lg:px-24 xl:px-32 transition-all duration-500 z-50 bg-white md:bg-transparent ${
         isScrolled
-          ? "bg-white/80 shadow-md text-gray-700 backdrop-blur-lg py-3 md:py-4"
-          : "py-4 md:py-6"
+          ? "md:bg-white/80 md:shadow-md md:backdrop-blur-lg text-gray-700 shadow-md md:text-gray-700 py-3 md:py-4"
+          : "text-gray-700 md:text-white py-4 md:py-6"
       }`}
     >
       {/* Logo */}
@@ -92,7 +92,7 @@ const Navbar = () => {
         <img
           src={assets.logo}
           alt="logo"
-          className={`h-9 ${!isScrolled && "invert opacity-80"}`}
+          className={`h-9 ${!isScrolled && "md:invert md:opacity-80"}`}
         />
       </Link>
 
@@ -224,7 +224,7 @@ const Navbar = () => {
         <img
           src={assets.searchIcon}
           alt="search"
-          className={`h-6 cursor-pointer ${isScrolled ? "invert" : ""}`}
+          className="h-6 cursor-pointer invert"
           onClick={() => setIsSearchOpen(!isSearchOpen)}
         />
 
@@ -235,17 +235,17 @@ const Navbar = () => {
           <span
             className={`block h-0.5 w-full bg-current transition-all duration-300 ${
               isMenuOpen ? "rotate-45 translate-y-2.5" : ""
-            } ${isScrolled ? "bg-gray-900" : "bg-white"}`}
+            } ${isScrolled ? "bg-gray-900" : "md:bg-white bg-gray-900"}`}
           />
           <span
             className={`block h-0.5 w-full bg-current transition-opacity duration-300 ${
               isMenuOpen ? "opacity-0" : "opacity-100"
-            } ${isScrolled ? "bg-gray-900" : "bg-white"}`}
+            } ${isScrolled ? "bg-gray-900" : "md:bg-white bg-gray-900"}`}
           />
           <span
             className={`block h-0.5 w-full bg-current transition-all duration-300 ${
               isMenuOpen ? "-rotate-45 -translate-y-2.5" : ""
-            } ${isScrolled ? "bg-gray-900" : "bg-white"}`}
+            } ${isScrolled ? "bg-gray-900" : "md:bg-white bg-gray-900"}`}
           />
         </button>
       </div>

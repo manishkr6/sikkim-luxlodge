@@ -56,6 +56,30 @@ import nathula_pass from "./eastSikkimPhoto/nathula-pass.jpg";
 import rumtek_monastery from "./eastSikkimPhoto/rumtek-monastery.jpg";
 import tashi_view_point from "./eastSikkimPhoto/tashi-view-point.jpg";
 import tsomgo_lake from "./eastSikkimPhoto/tsomgo-lake.jpg";
+import kupup_lake from "./eastSikkimPhoto/kupup_lake.png";
+import aritar_lake from "./eastSikkimPhoto/aritar-lake.png";
+import baba_mandir from "./eastSikkimPhoto/baba-mandir.png";
+import Bakthang_Waterfalls from "./eastSikkimPhoto/Bakthang-Waterfalls.png";
+import Enchey_Monastery from "./eastSikkimPhoto/Enchey-Monastery.png";
+import Ganesh_Tok from "./eastSikkimPhoto/Ganesh-Tok.png";
+import Hanuman_Tok from "./eastSikkimPhoto/Hanuman-Tok.png";
+import Do_Drul_Chorten from "./eastSikkimPhoto/Do-Drul-Chorten.png";
+import Zuluk from "./eastSikkimPhoto/Zuluk.png";
+import Fambong_Lho_Sanctuary from "./eastSikkimPhoto/Fambong-Lho-Sanctuary.jpg";
+import Saramsa_Garden from "./eastSikkimPhoto/Saramsa-Garden.jpg";
+import Lingdum_Monastery from "./eastSikkimPhoto/Lingdum-Monastery.jpg";
+import Gnathang_Valley from "./eastSikkimPhoto/Gnathang-Valley.jpg";
+import Menmecho_Lake from "./eastSikkimPhoto/Menmecho-Lake.jpg";
+import Bar_Changey_Falls from "./eastSikkimPhoto/Bar-Changey-Falls.webp";
+import Tholung_Monastery from "./eastSikkimPhoto/Tholung Monastery.jpg";
+import Gonjang_Monastery from "./eastSikkimPhoto/Gonjang-Monastery.jpg";
+import Thambi_Viewpoint from "./eastSikkimPhoto/Thambi-Viewpoint.webp";
+import Rolep_Village from "./eastSikkimPhoto/Rolep-Village.jpg";
+import Pastanga from "./eastSikkimPhoto/Pastanga.jpg";
+import Flower_Pavilion from "./eastSikkimPhoto/Flower-Pavilion.jpg";
+import Ropeway_Ride from "./eastSikkimPhoto/Ropeway-Ride.avif";
+import Tibetology_Institute from "./eastSikkimPhoto/Tibetology-Institute.jpg";
+
 
 export const east_sikkim_assets = {
   banjhakiri_falls,
@@ -64,6 +88,29 @@ export const east_sikkim_assets = {
   rumtek_monastery,
   tashi_view_point,
   tsomgo_lake,
+  kupup_lake,
+  aritar_lake,
+  baba_mandir,
+  Bakthang_Waterfalls,
+  Enchey_Monastery,
+  Ganesh_Tok,
+  Hanuman_Tok,
+  Do_Drul_Chorten,
+  Zuluk,
+  Fambong_Lho_Sanctuary,
+  Saramsa_Garden,
+  Lingdum_Monastery,
+  Gnathang_Valley,
+  Menmecho_Lake,
+  Bar_Changey_Falls,
+  Tholung_Monastery,
+  Gonjang_Monastery,
+  Thambi_Viewpoint,
+  Rolep_Village,
+  Pastanga,
+  Flower_Pavilion,
+  Ropeway_Ride,
+  Tibetology_Institute,
 };
 
 // West Sikkim
