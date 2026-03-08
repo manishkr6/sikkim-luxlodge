@@ -120,6 +120,30 @@ import Pemayangtse_monastery from "./westSikkimPhoto/pemayangtse-monastery.jpg";
 import rabdentse_ruins from "./westSikkimPhoto/rabdentse-ruins.jpg";
 import singshore_bridge from "./westSikkimPhoto/singshore-bridge.jpg";
 import yuksom from "./westSikkimPhoto/yuksom.jpg";
+import Pelling from "./westSikkimPhoto/Pelling.jpg";
+import Sangachoeling_Monastery from "./westSikkimPhoto/Sangachoeling-Monastery.jpg";
+import Phamrong_Waterfalls from "./westSikkimPhoto/Phamrong-Waterfalls.jpg";
+import Norbugang_Throne from "./westSikkimPhoto/Norbugang-Throne.webp";
+import Sewaro_Rock_Garden from "./westSikkimPhoto/Sewaro-Rock-Garden.jpg";
+import Kanchenjunga_Falls from "./westSikkimPhoto/Kanchenjunga-Falls.jpg";
+import Darap_village from "./westSikkimPhoto/Darap-Village.webp";
+import Changey_Waterfalls from "./westSikkimPhoto/Changey-Waterfalls.webp";
+import Varsey_Sanctuary from "./westSikkimPhoto/Varsey-Sanctuary.webp";
+import singalila_park from "./westSikkimPhoto/Singalila-Park.jpg";
+import goecha_la_trek from "./westSikkimPhoto/Goecha-La-Trek.webp";
+import dzongri_trek from "./westSikkimPhoto/Dzongri-Trek.jpg";
+import base_camp from "./westSikkimPhoto/Base-Camp.webp";
+import heeyangthang from "./westSikkimPhoto/Heeyangthang.jpg";
+import soreng from "./westSikkimPhoto/Soreng.jpg";
+import Rinchenpong from "./westSikkimPhoto/Rinchenpong.avif";
+import Bermiok from "./westSikkimPhoto/Bermiok.webp";
+import Dentam_vally from "./westSikkimPhoto/Dentam-Valley.webp";
+import Kartok_monastery from "./westSikkimPhoto/Kartok-Monastery.jpg";
+import legship from "./westSikkimPhoto/Legship.webp";
+import chankung from "./westSikkimPhoto/Chakung-Temple.jpg";
+import Tashiding from "./westSikkimPhoto/Tashiding.webp";
+import melli from "./westSikkimPhoto/Melli.webp";
+import kaluk from "./westSikkimPhoto/Kaluk.jpg";
 
 export const west_sikkim_assets = {
   dubdi_monastery,
@@ -128,6 +152,30 @@ export const west_sikkim_assets = {
   rabdentse_ruins,
   singshore_bridge,
   yuksom,
+  Pelling,
+  Sangachoeling_Monastery,
+  Phamrong_Waterfalls,
+  Norbugang_Throne,
+  Sewaro_Rock_Garden,
+  Kanchenjunga_Falls,
+  Darap_village,
+  Changey_Waterfalls,
+  Varsey_Sanctuary,
+  singalila_park,
+  goecha_la_trek,
+  dzongri_trek,
+  base_camp,
+  heeyangthang,
+  soreng,
+  Rinchenpong,
+  Bermiok,
+  Dentam_vally,
+  Kartok_monastery,
+  legship,
+  chankung,
+  Tashiding,
+  melli,
+  kaluk,
 };
 
 // North Sikkim
