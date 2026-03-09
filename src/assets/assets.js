@@ -185,6 +185,30 @@ import phodong_monastery from "./northSikkimPhoto/phodong-monastery.jpg";
 import thangu_valley from "./northSikkimPhoto/thangu-valley.webp";
 import yumthang_valley from "./northSikkimPhoto/yumthang-valley.jpg";
 import zero_point from "./northSikkimPhoto/zero-point.jpg";
+import Lachen from "./northSikkimPhoto/Lachen.jpg";
+import Katao_Mount from "./northSikkimPhoto/Katao-Mount.jpg";
+import Chopta_valley from "./northSikkimPhoto/Chopta-Valley.jpg";
+import Mangan from "./northSikkimPhoto/Mangan.jpg";
+import Chungthang from "./northSikkimPhoto/Chungthang.webp";
+import Singhik from "./northSikkimPhoto/Singhik.webp";
+import Kabi_Lungchok from "./northSikkimPhoto/Kabi-Lungchok.jpg";
+import Seven_sisters from "./northSikkimPhoto/Seven-Sisters.webp";
+import Shingba_Sanctuary from "./northSikkimPhoto/Shingba-Sanctuary.jpg";
+import Green_lake from "./northSikkimPhoto/Green-Lake.jpg";
+import Lachen_Monastery from "./northSikkimPhoto/Lachen-Monastery.jpg";
+import Lachung_Monastery from "./northSikkimPhoto/Lachung-Monastery.jpg";
+import Kala_patthar from "./northSikkimPhoto/Kala-Patthar.jpg";
+import Naga_falls from "./northSikkimPhoto/Naga-Falls.jpg";
+import Dzonggu_valley from "./northSikkimPhoto/Dzonggu-Valley.webp";
+import Toong_village from "./northSikkimPhoto/Toong-Village.jpeg";
+import Bhim_nala_falls from "./northSikkimPhoto/Bhim-Nala-Falls.avif";
+import Phensang_gompa from "./northSikkimPhoto/Phensang-Gompa.jpg";
+import Dikchu from "./northSikkimPhoto/Dikchu.jpg";
+import Donkiala_pass from "./northSikkimPhoto/Donkiala-Pass.jpg";
+import Tsunthang from "./northSikkimPhoto/Tsunthang.jpg";
+import Sirijunga from "./northSikkimPhoto/Sirijunga.webp";
+import Labrang_monastery from "./northSikkimPhoto/Labrang-Monastery.jpg";
+import Crows_Lake from "./northSikkimPhoto/Crow's-Lake.jpg";
 
 export const north_sikkim_assets = {
   gurudongmar_lake,
@@ -193,23 +217,93 @@ export const north_sikkim_assets = {
   thangu_valley,
   yumthang_valley,
   zero_point,
+  Lachen,
+  Katao_Mount,
+  Chopta_valley,
+  Mangan,
+  Chungthang,
+  Singhik,
+  Kabi_Lungchok,
+  Seven_sisters,
+  Shingba_Sanctuary,
+  Green_lake,
+  Lachen_Monastery,
+  Lachung_Monastery,
+  Kala_patthar,
+  Naga_falls,
+  Dzonggu_valley,
+  Toong_village,
+  Bhim_nala_falls,
+  Phensang_gompa,
+  Dikchu,
+  Donkiala_pass,
+  Tsunthang,
+  Sirijunga,
+  Labrang_monastery,
+  Crows_Lake
 };
 
 // South Sikkim
 import char_dham from "./southSikkimPhoto/char-dham.jpg"
 import maenam_park from "./southSikkimPhoto/maenam_park.jpg"
 import namchi from "./southSikkimPhoto/namchi.jpg"
-import ravangla_buddha_parl from "./southSikkimPhoto/ravangla-buddha-park.jpg"
+import ravangla_buddha_park from "./southSikkimPhoto/ravangla-buddha-park.jpg"
 import sirdang_monastery from "./southSikkimPhoto/sirdang-monastery.jpg"
 import temi_tarku from "./southSikkimPhoto/temi-tarku.jpg"
+import Samdruptse_Hill from "./southSikkimPhoto/Samdruptse-Hill.webp"
+import Ravangla from "./southSikkimPhoto/Ravangla.jpg"
+import Borong from "./southSikkimPhoto/Borong.webp"
+import Jorthang from "./southSikkimPhoto/Jorethang.webp"
+import sikip from "./southSikkimPhoto/Sikip.jpg"
+import Kewzing from "./southSikkimPhoto/Kewzing.webp"
+import maenam_hill from "./southSikkimPhoto/Maenam-Hill.jpg"
+import Tendong_hill from "./southSikkimPhoto/Tendong-Hill.avif"
+import Tarey_bhir from "./southSikkimPhoto/Tarey-Bhir.jpg"
+import Borong_springs from "./southSikkimPhoto/Borong-Springs.jpg"
+import Ralong_springs from "./southSikkimPhoto/Ralong-Springs.webp"
+import Ralong_monastery from "./southSikkimPhoto/Ralong-Monastery.jpg"
+import sai_mandir from "./southSikkimPhoto/Sai-Mandir.jpg"
+import yangan from "./southSikkimPhoto/Yangang.jpg"
+import namchi_ropeway from "./southSikkimPhoto/Namchi-Ropeway.jpg"
+import rock_garden from "./southSikkimPhoto/Rock-Garden.jpg"
+import bhalay_dhunga from "./southSikkimPhoto/Bhalay-Dhunga.jpg"
+import tig_day_dho from "./southSikkimPhoto/Tig-Day-Cho.jpg"
+import neya_khola_falls from "./southSikkimPhoto/Neya-Khola-Falls.jpg"
+import yangang_gompa from "./southSikkimPhoto/Yangang-Gompa.jpg"
+import lepcha_gompa from "./southSikkimPhoto/Lepcha-Gompa.jpg"
+import kitma_sanctuary from "./southSikkimPhoto/Kitam-Sanctuary.webp"
+import damthang from "./southSikkimPhoto/Damthang.jpg"
 
 export const south_sikkim_assets = {
   char_dham,
   maenam_park,
   namchi,
-  ravangla_buddha_parl,
+  ravangla_buddha_park,
   sirdang_monastery,
-  temi_tarku
+  temi_tarku,
+  Samdruptse_Hill,
+  Ravangla,
+  Borong,
+  Jorthang,
+  sikip,
+  Kewzing,
+  maenam_hill,
+  Tendong_hill,
+  Tarey_bhir,
+  Borong_springs,
+  Ralong_springs,
+  Ralong_monastery,
+  sai_mandir,
+  yangan,
+  namchi_ropeway,
+  rock_garden,
+  bhalay_dhunga,
+  tig_day_dho,
+  neya_khola_falls,
+  yangang_gompa,
+  lepcha_gompa,
+  kitma_sanctuary,
+  damthang,
 }
 
 
